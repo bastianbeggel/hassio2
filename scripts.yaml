@@ -1,0 +1,10 @@
+
+
+'ha_script_test':
+  alias: ha_script_test
+  sequence:
+    - service: rest_command.ha_script
+      data:
+        script: "music_box_next_track"        
+
+

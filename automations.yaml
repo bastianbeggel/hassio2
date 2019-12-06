@@ -1,0 +1,217 @@
+## HA-2 
+
+#left 105
+#right 106
+#up 103
+#down 108
+#
+#red 59
+#green 60
+#yellow 61
+#blue 62
+#
+#
+#zoom+ 13 --> play
+#zoomlevel1 2--> pause
+#zoomlevel2 3 --> forward
+#zoomlevel3 4 --> backward
+#zoomnormal 11  --> stop (media_player.media_stop)
+#
+#
+#
+#
+
+
+- alias: find out Key codes
+  trigger:
+    platform: event
+    event_type: keyboard_remote_command_received
+    event_data:
+      device_descriptor: "/dev/input/event0"
+  action:
+  - service: input_text.set_value
+    data_template:
+      entity_id: input_text.mykeycode
+      value: '{{ trigger.event.data.key_code }}'
+
+
+- alias: script.music_box_next_track
+  trigger:
+    platform: event
+    event_type: keyboard_remote_command_received
+    event_data:
+      #device_descriptor: "/dev/input/by-id/usb-flirc.tv_flirc-if01-event-kbd"
+      device_descriptor: "/dev/input/event0"
+      key_code: 106       
+  action:
+#  - service: script.turn_on
+#    entity_id: script.music_box_next_track
+  - service: rest_command.ha_script
+    data:
+      script: "music_box_next_track"        
+
+
+- alias: script.music_box_prev_track
+  trigger:
+    platform: event
+    event_type: keyboard_remote_command_received
+    event_data:
+      #device_descriptor: "/dev/input/by-id/usb-flirc.tv_flirc-if01-event-kbd"
+      device_descriptor: "/dev/input/event0"
+      key_code: 105       
+  action:
+#  - service: script.turn_on
+#    entity_id: script.music_box_prev_track
+  - service: rest_command.ha_script
+    data:
+      script: "music_box_prev_track"        
+
+
+- alias: script.music_box_seek_forward
+  trigger:
+    platform: event
+    event_type: keyboard_remote_command_received
+    event_data:
+      #device_descriptor: "/dev/input/by-id/usb-flirc.tv_flirc-if01-event-kbd"
+      device_descriptor: "/dev/input/event0"
+      key_code: 103       
+  action:
+  - service: script.turn_on
+    entity_id: script.music_box_seek_forward
+  - service: rest_command.ha_script
+    data:
+      script: "music_box_seek_forward"        
+                        
+                        
+- alias: script.music_box_seek_backward     
+  trigger:
+    platform: event
+    event_type: keyboard_remote_command_received
+    event_data:
+      #device_descriptor: "/dev/input/by-id/usb-flirc.tv_flirc-if01-event-kbd"
+      device_descriptor: "/dev/input/event0"
+      key_code: 108       
+  action:
+#  - service: script.turn_on
+#    entity_id: script.music_box_seek_backward                        
+  - service: rest_command.ha_script
+    data:
+      script: "music_box_seek_backward"        
+                        
+    
+    
+- alias: script.music_box_set_input_lan     
+  trigger:
+    platform: event
+    event_type: keyboard_remote_command_received
+    event_data:
+      #device_descriptor: "/dev/input/by-id/usb-flirc.tv_flirc-if01-event-kbd"
+      device_descriptor: "/dev/input/event0"
+      key_code: 59       
+  action:
+#  - service: script.turn_on
+#    entity_id: script.music_box_set_input_lan             
+  - service: rest_command.ha_script
+    data:
+      script: "music_box_set_input_lan"        
+                        
+
+
+- alias: script.music_box_set_input_toslink     
+  trigger:
+    platform: event
+    event_type: keyboard_remote_command_received
+    event_data:
+      #device_descriptor: "/dev/input/by-id/usb-flirc.tv_flirc-if01-event-kbd"
+      device_descriptor: "/dev/input/event0"
+      key_code: 60
+  action:
+#  - service: script.turn_on
+#    entity_id: script.music_box_set_input_toslink           
+  - service: rest_command.ha_script
+    data:
+      script: "music_box_set_input_toslink"        
+                        
+    
+
+- alias: script.music_box_play_pause     
+  trigger:
+    platform: event
+    event_type: keyboard_remote_command_received
+    event_data:
+      device_descriptor: "/dev/input/event0"
+      key_code: 13
+  action:
+#  - service: script.turn_on
+#    entity_id: script.music_box_play_pause   
+  - service: rest_command.ha_script
+    data:
+      script: "music_box_play_pause"        
+                        
+
+
+- alias: script.music_box_play_pause     
+  trigger:
+    platform: event
+    event_type: keyboard_remote_command_received
+    event_data:
+      device_descriptor: "/dev/input/event0"
+      key_code: 2
+  action:
+#  - service: script.turn_on
+#    entity_id: script.music_box_play_pause   
+  - service: rest_command.ha_script
+    data:
+      script: "music_box_play_pause"        
+                        
+
+
+- alias: script.music_box_next_track (2)   
+  trigger:
+    platform: event
+    event_type: keyboard_remote_command_received
+    event_data:
+      device_descriptor: "/dev/input/event0"
+      key_code: 3
+  action:
+#  - service: script.turn_on
+#    entity_id: script.music_box_next_track   
+  - service: rest_command.ha_script
+    data:
+      script: "music_box_next_track"        
+                        
+
+
+- alias: script.music_box_prev_track (2)    
+  trigger:
+    platform: event
+    event_type: keyboard_remote_command_received
+    event_data:
+      device_descriptor: "/dev/input/event0"
+      key_code: 4
+  action:
+#  - service: script.turn_on
+#    entity_id: script.music_box_prev_track   
+  - service: rest_command.ha_script
+    data:
+      script: "music_box_prev_track"        
+                        
+
+
+- alias: script.music_box_stop
+  trigger:
+    platform: event
+    event_type: keyboard_remote_command_received
+    event_data:
+      device_descriptor: "/dev/input/event0"
+      key_code: 11
+  action:
+#  - service: script.turn_on
+#    entity_id: script.music_box_stop  
+  - service: rest_command.ha_script
+    data:
+      script: "music_box_stop"        
+                        
+
+    
+    

@@ -1,0 +1,88 @@
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+## HA 2 Instanz
+
+default_config:
+
+frontend:
+  themes: !include themes.yaml
+
+logger:
+  default: error
+
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+# http:
+#   base_url: example.duckdns.org:8123
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+keyboard_remote:
+  #- device_descriptor: '/dev/input/by-id/usb-flirc.tv_flirc-if01-event-kbd'
+  - device_descriptor: '/dev/input/event0'  
+    type: 
+      - 'key_up'
+      #- 'key_down'
+    
+
+input_text:
+  mykeycode:
+    name: mykeycode
+    initial: Some Key
+
+switch:      
+    
+#remote_homeassistant:
+#  instances:
+#  - host: 192.168.178.22
+#    secure: false
+#    verify_ssl: false
+#    access_token: !secret ha_token_secret 
+#    include:
+#      domains:
+#      - script
+#      - switch
+#    subscribe_events:
+#      - state_changed
+#      - service_registered
+
+rest_command:
+  music_box_next_track:
+    url: http://192.168.178.22:8123/api/services/script/music_box_next_track    
+    method: POST
+    headers:
+      authorization:  !secret rest_headers_secret
+      accept: 'application/json, text/html'
+    verify_ssl: false      
+  
+  ha_script:
+    url: http://192.168.178.22:8123/api/services/script/turn_on
+    method: POST
+    verify_ssl: false      
+    headers:
+      authorization: !secret rest_headers_secret
+      accept: 'application/json, text/html'
+    payload: '{"entity_id": "script.{{ script }}"}'
+
+  ha_script_next:
+    url: http://192.168.178.22:8123/api/services/script/turn_on
+    method: POST
+    verify_ssl: false      
+    headers:
+      authorization: !secret rest_headers_secret
+      accept: 'application/json, text/html'
+    payload: '{"entity_id": "script.music_box_next_track"}'    
+
+
+    
+    #curl -X POST -H "Authorization: Bearer ey..." \
+    #   -H "Content-Type: application/json" \
+    #   -d '{"entity_id": "switch.basti_decke"}' \
+    #   http://192.168.178.22:8123/api/services/script/music_box_next_track
