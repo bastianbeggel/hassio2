@@ -132,7 +132,23 @@
     data:
       script: "music_box_set_input_toslink"        
                         
-    
+
+- alias: script.music_box_set_input_usb     
+  trigger:
+    platform: event
+    event_type: keyboard_remote_command_received
+    event_data:
+      #device_descriptor: "/dev/input/by-id/usb-flirc.tv_flirc-if01-event-kbd"
+      device_descriptor: "/dev/input/event0"
+      key_code: 61
+  action:
+#  - service: script.turn_on
+#    entity_id: script.music_box_set_input_toslink           
+  - service: rest_command.ha_script
+    data:
+      script: "music_box_set_input_usb"        
+
+
 
 - alias: script.music_box_play_pause     
   trigger:
