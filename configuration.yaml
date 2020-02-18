@@ -26,7 +26,7 @@ scene: !include scenes.yaml
 
 keyboard_remote:
   #- device_descriptor: '/dev/input/by-id/usb-flirc.tv_flirc-if01-event-kbd'
-  - device_descriptor: '/dev/input/event0'  
+  - device_descriptor: '/dev/input/event3'  
     type: 
       - 'key_up'
       #- 'key_down'

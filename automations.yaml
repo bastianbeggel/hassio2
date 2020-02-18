@@ -27,7 +27,7 @@
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      device_descriptor: "/dev/input/event0"
+      device_descriptor: "/dev/input/event3"
   action:
   - service: input_text.set_value
     data_template:
@@ -40,12 +40,9 @@
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      #device_descriptor: "/dev/input/by-id/usb-flirc.tv_flirc-if01-event-kbd"
-      device_descriptor: "/dev/input/event0"
+      device_descriptor: "/dev/input/event3"
       key_code: 106       
   action:
-#  - service: script.turn_on
-#    entity_id: script.music_box_next_track
   - service: rest_command.ha_script
     data:
       script: "music_box_next_track"        
@@ -56,47 +53,38 @@
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      #device_descriptor: "/dev/input/by-id/usb-flirc.tv_flirc-if01-event-kbd"
-      device_descriptor: "/dev/input/event0"
+      device_descriptor: "/dev/input/event3"
       key_code: 105       
   action:
-#  - service: script.turn_on
-#    entity_id: script.music_box_prev_track
   - service: rest_command.ha_script
     data:
       script: "music_box_prev_track"        
 
 
-- alias: script.music_box_seek_forward
+- alias: script.music_box_seek_forward_10
   trigger:
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      #device_descriptor: "/dev/input/by-id/usb-flirc.tv_flirc-if01-event-kbd"
-      device_descriptor: "/dev/input/event0"
+      device_descriptor: "/dev/input/event3"
       key_code: 103       
   action:
-  - service: script.turn_on
-    entity_id: script.music_box_seek_forward
   - service: rest_command.ha_script
     data:
-      script: "music_box_seek_forward"        
+      script: "music_box_seek_forward_10"        
                         
                         
-- alias: script.music_box_seek_backward     
+- alias: script.music_box_seek_backward_10     
   trigger:
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      #device_descriptor: "/dev/input/by-id/usb-flirc.tv_flirc-if01-event-kbd"
-      device_descriptor: "/dev/input/event0"
+      device_descriptor: "/dev/input/event3"
       key_code: 108       
   action:
-#  - service: script.turn_on
-#    entity_id: script.music_box_seek_backward                        
   - service: rest_command.ha_script
     data:
-      script: "music_box_seek_backward"        
+      script: "music_box_seek_backward_10"        
                         
     
     
@@ -105,12 +93,9 @@
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      #device_descriptor: "/dev/input/by-id/usb-flirc.tv_flirc-if01-event-kbd"
-      device_descriptor: "/dev/input/event0"
+      device_descriptor: "/dev/input/event3"
       key_code: 59       
   action:
-#  - service: script.turn_on
-#    entity_id: script.music_box_set_input_lan             
   - service: rest_command.ha_script
     data:
       script: "music_box_set_input_lan"        
@@ -122,12 +107,9 @@
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      #device_descriptor: "/dev/input/by-id/usb-flirc.tv_flirc-if01-event-kbd"
-      device_descriptor: "/dev/input/event0"
+      device_descriptor: "/dev/input/event3"
       key_code: 60
   action:
-#  - service: script.turn_on
-#    entity_id: script.music_box_set_input_toslink           
   - service: rest_command.ha_script
     data:
       script: "music_box_set_input_toslink"        
@@ -138,79 +120,68 @@
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      #device_descriptor: "/dev/input/by-id/usb-flirc.tv_flirc-if01-event-kbd"
-      device_descriptor: "/dev/input/event0"
+      device_descriptor: "/dev/input/event3"
       key_code: 61
   action:
-#  - service: script.turn_on
-#    entity_id: script.music_box_set_input_toslink           
   - service: rest_command.ha_script
     data:
       script: "music_box_set_input_usb"        
 
 
 
-- alias: script.music_box_play_pause     
+- alias: script.music_box_play
   trigger:
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      device_descriptor: "/dev/input/event0"
+      device_descriptor: "/dev/input/event3"
       key_code: 13
   action:
-#  - service: script.turn_on
-#    entity_id: script.music_box_play_pause   
   - service: rest_command.ha_script
     data:
-      script: "music_box_play_pause"        
+      script: "music_box_play"        
                         
 
 
-- alias: script.music_box_play_pause     
+- alias: script.music_box_pause     
   trigger:
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      device_descriptor: "/dev/input/event0"
+      device_descriptor: "/dev/input/event3"
       key_code: 2
   action:
-#  - service: script.turn_on
-#    entity_id: script.music_box_play_pause   
   - service: rest_command.ha_script
     data:
-      script: "music_box_play_pause"        
+      script: "music_box_pause"        
                         
 
 
-- alias: script.music_box_next_track (2)   
+- alias: script.music_box_seek_forward_30
   trigger:
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      device_descriptor: "/dev/input/event0"
+      device_descriptor: "/dev/input/event3"
       key_code: 3
   action:
-#  - service: script.turn_on
-#    entity_id: script.music_box_next_track   
   - service: rest_command.ha_script
     data:
-      script: "music_box_next_track"        
+      script: "music_box_seek_forward_30"        
                         
 
 
-- alias: script.music_box_prev_track (2)    
+- alias: script.music_box_seek_backward_30
   trigger:
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      device_descriptor: "/dev/input/event0"
+      device_descriptor: "/dev/input/event3"
       key_code: 4
   action:
-#  - service: script.turn_on
-#    entity_id: script.music_box_prev_track   
   - service: rest_command.ha_script
     data:
-      script: "music_box_prev_track"        
+      script: "music_box_seek_backward_30"        
                         
 
 
@@ -219,11 +190,9 @@
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      device_descriptor: "/dev/input/event0"
+      device_descriptor: "/dev/input/event3"
       key_code: 11
   action:
-#  - service: script.turn_on
-#    entity_id: script.music_box_stop  
   - service: rest_command.ha_script
     data:
       script: "music_box_stop"        
