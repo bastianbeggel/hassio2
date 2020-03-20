@@ -202,5 +202,55 @@
       script: "music_box_stop"        
                         
 
-    
-    
+###############################################################    
+############################# Farben Steuern
+###############################################################
+
+- alias: script.schreibtisch_red
+  trigger:
+    platform: event
+    event_type: keyboard_remote_command_received
+    event_data:
+      device_name: 'flirc.tv flirc Keyboard'
+      key_code: 5 #-- drücken der 4 
+  action:
+  - service: rest_command.ha_script
+    data:
+      script: "schreibtisch_red"       
+
+
+- alias: script.schreibtisch_green
+  trigger:
+    platform: event
+    event_type: keyboard_remote_command_received
+    event_data:
+      device_name: 'flirc.tv flirc Keyboard'
+      key_code: 6 #-- drücken der 5
+  action:
+  - service: rest_command.ha_script
+    data:
+      script: "schreibtisch_green"             
+
+- alias: script.schreibtisch_yellow
+  trigger:
+    platform: event
+    event_type: keyboard_remote_command_received
+    event_data:
+      device_name: 'flirc.tv flirc Keyboard'
+      key_code: 7 #-- drücken der 6
+  action:
+  - service: rest_command.ha_script
+    data:
+      script: "schreibtisch_yellow"         
+
+- alias: script.schreibtisch_white
+  trigger:
+    platform: event
+    event_type: keyboard_remote_command_received
+    event_data:
+      device_name: 'flirc.tv flirc Keyboard'
+      key_code: 8 #-- drücken der 7
+  action:
+  - service: rest_command.ha_script
+    data:
+      script: "schreibtisch_white"         
