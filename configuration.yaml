@@ -8,8 +8,13 @@ frontend:
   themes: !include themes.yaml
 
 logger:
-  default: error
+  default: info
+  #logs: 
+  #   homeassistant.components.keyboard_remote: debug
+  #   homeassistant.core: debug
+  #   homeassistant.components: debug
 
+#discovery:
 
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 # http:
@@ -25,8 +30,11 @@ script: !include scripts.yaml
 scene: !include scenes.yaml
 
 keyboard_remote:
+  #- device_name: 'usb-flirc.tv_flirc-if01-event-kbd'
+  - device_name: 'flirc.tv flirc Keyboard'
+  
   #- device_descriptor: '/dev/input/by-id/usb-flirc.tv_flirc-if01-event-kbd'
-  - device_descriptor: '/dev/input/event3'  
+  #- device_descriptor: '/dev/input/event4'  
     type: 
       - 'key_up'
       #- 'key_down'

@@ -4,7 +4,7 @@ dark:
 
   # Colors
   text-color: '#DADADB'                                                           # Grey text
-  text-medium-light-color: '#A0A2A8'                                              # Medium-light grey text
+  text-medium-light-color: '#A0A2A8'                                               # Medium-light grey text
   text-medium-color: '#80828A'                                                    # Medium grey text
   text-dark-color: '#6A6B74'                                                      # Dark grey text
   accent-color: '#008bef'                                                         # Blue

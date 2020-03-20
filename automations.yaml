@@ -1,4 +1,5 @@
 ## HA-2 
+  
 
 #left 105
 #right 106
@@ -27,7 +28,10 @@
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      device_descriptor: "/dev/input/event3"
+      #device_descriptor: "/dev/input/event4"
+      device_name: 'flirc.tv flirc Keyboard'
+      #device_name: 'flirc.tv flirc Keyboard'
+      #device_name: 'usb-flirc.tv_flirc-if01-event-kbd'
   action:
   - service: input_text.set_value
     data_template:
@@ -40,7 +44,7 @@
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      device_descriptor: "/dev/input/event3"
+      device_name: 'flirc.tv flirc Keyboard'
       key_code: 106       
   action:
   - service: rest_command.ha_script
@@ -53,7 +57,7 @@
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      device_descriptor: "/dev/input/event3"
+      device_name: 'flirc.tv flirc Keyboard'
       key_code: 105       
   action:
   - service: rest_command.ha_script
@@ -66,7 +70,7 @@
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      device_descriptor: "/dev/input/event3"
+      device_name: 'flirc.tv flirc Keyboard'
       key_code: 103       
   action:
   - service: rest_command.ha_script
@@ -79,7 +83,7 @@
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      device_descriptor: "/dev/input/event3"
+      device_name: 'flirc.tv flirc Keyboard'
       key_code: 108       
   action:
   - service: rest_command.ha_script
@@ -93,7 +97,7 @@
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      device_descriptor: "/dev/input/event3"
+      device_name: 'flirc.tv flirc Keyboard'
       key_code: 59       
   action:
   - service: rest_command.ha_script
@@ -107,7 +111,7 @@
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      device_descriptor: "/dev/input/event3"
+      device_name: 'flirc.tv flirc Keyboard'
       key_code: 60
   action:
   - service: rest_command.ha_script
@@ -120,7 +124,7 @@
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      device_descriptor: "/dev/input/event3"
+      device_name: 'flirc.tv flirc Keyboard'
       key_code: 61
   action:
   - service: rest_command.ha_script
@@ -134,7 +138,7 @@
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      device_descriptor: "/dev/input/event3"
+      device_name: 'flirc.tv flirc Keyboard'
       key_code: 13
   action:
   - service: rest_command.ha_script
@@ -148,7 +152,7 @@
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      device_descriptor: "/dev/input/event3"
+      device_name: 'flirc.tv flirc Keyboard'
       key_code: 2
   action:
   - service: rest_command.ha_script
@@ -162,7 +166,7 @@
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      device_descriptor: "/dev/input/event3"
+      device_name: 'flirc.tv flirc Keyboard'
       key_code: 3
   action:
   - service: rest_command.ha_script
@@ -176,7 +180,7 @@
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      device_descriptor: "/dev/input/event3"
+      device_name: 'flirc.tv flirc Keyboard'
       key_code: 4
   action:
   - service: rest_command.ha_script
@@ -190,7 +194,7 @@
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      device_descriptor: "/dev/input/event3"
+      device_name: 'flirc.tv flirc Keyboard'
       key_code: 11
   action:
   - service: rest_command.ha_script
