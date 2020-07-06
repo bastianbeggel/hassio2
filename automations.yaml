@@ -1,3 +1,5 @@
+
+
 ## HA-2 
   
 
@@ -130,6 +132,18 @@
   - service: rest_command.ha_script
     data:
       script: "music_box_set_input_usb"        
+
+- alias: script.music_box_set_input_volumio
+  trigger:
+    platform: event
+    event_type: keyboard_remote_command_received
+    event_data:
+      device_name: 'flirc.tv flirc Keyboard'
+      key_code: 62
+  action:
+  - service: rest_command.ha_script
+    data:
+      script: "music_box_set_input_volumio"        
 
 
 

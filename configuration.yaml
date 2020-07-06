@@ -40,10 +40,14 @@ keyboard_remote:
       #- 'key_down'
     
 
+
+
 input_text:
   mykeycode:
     name: mykeycode
     initial: Some Key
+
+
 
 switch:      
     
