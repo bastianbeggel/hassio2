@@ -2,7 +2,9 @@
 # Configure a default setup of Home Assistant (frontend, api, etc)
 ## HA 2 Instanz
 
-default_config:
+#default_config:
+
+#logbook:
 
 frontend:
   themes: !include themes.yaml
@@ -39,7 +41,7 @@ keyboard_remote:
       - 'key_up'
       #- 'key_down'
     
-
+ffmpeg:
 
 
 input_text:
@@ -98,3 +100,4 @@ rest_command:
     #   -H "Content-Type: application/json" \
     #   -d '{"entity_id": "switch.basti_decke"}' \
     #   http://192.168.178.22:8123/api/services/script/music_box_next_track
+

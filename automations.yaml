@@ -1,270 +1,231 @@
-
-
-## HA-2 
-  
-
-#left 105
-#right 106
-#up 103
-#down 108
-#
-#red 59
-#green 60
-#yellow 61
-#blue 62
-#
-#
-#zoom+ 13 --> play
-#zoomlevel1 2--> pause
-#zoomlevel2 3 --> forward
-#zoomlevel3 4 --> backward
-#zoomnormal 11  --> stop (media_player.media_stop)
-#
-#
-#
-#
-
-
 - alias: find out Key codes
   trigger:
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      #device_descriptor: "/dev/input/event4"
-      device_name: 'flirc.tv flirc Keyboard'
-      #device_name: 'flirc.tv flirc Keyboard'
-      #device_name: 'usb-flirc.tv_flirc-if01-event-kbd'
+      device_name: flirc.tv flirc Keyboard
   action:
   - service: input_text.set_value
     data_template:
       entity_id: input_text.mykeycode
       value: '{{ trigger.event.data.key_code }}'
-
-
+  id: 3d9a9651701946dcb47260bc3961a659
 - alias: script.music_box_next_track
   trigger:
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      device_name: 'flirc.tv flirc Keyboard'
-      key_code: 106       
+      device_name: flirc.tv flirc Keyboard
+      key_code: 106
   action:
   - service: rest_command.ha_script
     data:
-      script: "music_box_next_track"        
-
-
+      script: music_box_next_track
+  id: 1a0ebfa4a26646feb9d2905f580e5d6a
 - alias: script.music_box_prev_track
   trigger:
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      device_name: 'flirc.tv flirc Keyboard'
-      key_code: 105       
+      device_name: flirc.tv flirc Keyboard
+      key_code: 105
   action:
   - service: rest_command.ha_script
     data:
-      script: "music_box_prev_track"        
-
-
+      script: music_box_prev_track
+  id: bbf96e7a4a9a4046a277cf7bc2c471e6
 - alias: script.music_box_seek_forward_10
   trigger:
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      device_name: 'flirc.tv flirc Keyboard'
-      key_code: 103       
+      device_name: flirc.tv flirc Keyboard
+      key_code: 103
   action:
   - service: rest_command.ha_script
     data:
-      script: "music_box_seek_forward_10"        
-                        
-                        
-- alias: script.music_box_seek_backward_10     
+      script: music_box_seek_forward_10
+  id: d4bbcdc47d8f4e2e9463a600b97daeb4
+- alias: script.music_box_seek_backward_10
   trigger:
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      device_name: 'flirc.tv flirc Keyboard'
-      key_code: 108       
+      device_name: flirc.tv flirc Keyboard
+      key_code: 108
   action:
   - service: rest_command.ha_script
     data:
-      script: "music_box_seek_backward_10"        
-                        
-    
-    
-- alias: script.music_box_set_input_lan     
+      script: music_box_seek_backward_10
+  id: 49800f72e1094dc09c5d004cf4e7a1c9
+- alias: script.music_box_set_input_lan
   trigger:
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      device_name: 'flirc.tv flirc Keyboard'
-      key_code: 59       
+      device_name: flirc.tv flirc Keyboard
+      key_code: 59
   action:
   - service: rest_command.ha_script
     data:
-      script: "music_box_set_input_lan"        
-                        
-
-
-- alias: script.music_box_set_input_toslink     
+      script: music_box_set_input_lan
+  id: 37694d0748e24ef1a06423a27a595d21
+- alias: script.music_box_set_input_toslink
   trigger:
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      device_name: 'flirc.tv flirc Keyboard'
+      device_name: flirc.tv flirc Keyboard
       key_code: 60
   action:
   - service: rest_command.ha_script
     data:
-      script: "music_box_set_input_toslink"        
-                        
-
-- alias: script.music_box_set_input_usb     
+      script: music_box_set_input_toslink
+  id: a4312ec31d4c40f980126407435f740f
+- alias: script.music_box_set_input_usb
   trigger:
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      device_name: 'flirc.tv flirc Keyboard'
+      device_name: flirc.tv flirc Keyboard
       key_code: 61
   action:
   - service: rest_command.ha_script
     data:
-      script: "music_box_set_input_usb"        
-
-- alias: script.music_box_set_input_volumio
+      script: music_box_set_input_usb
+  id: adcf7597e783446ca4f40e3cf31cda17
+- alias: script.music_box_set_input_spdif
   trigger:
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      device_name: 'flirc.tv flirc Keyboard'
+      device_name: flirc.tv flirc Keyboard
       key_code: 62
   action:
   - service: rest_command.ha_script
     data:
-      script: "music_box_set_input_volumio"        
-
-
-
+      script: music_box_set_input_spdif
+  id: 484a7411a7924e8cb37abbf22ffa428e
 - alias: script.music_box_play
   trigger:
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      device_name: 'flirc.tv flirc Keyboard'
+      device_name: flirc.tv flirc Keyboard
       key_code: 13
   action:
   - service: rest_command.ha_script
     data:
-      script: "music_box_play"        
-                        
-
-
-- alias: script.music_box_pause     
+      script: music_box_play
+  id: cd4a7bcc0fad421fb16d716b3e22e937
+- alias: script.music_box_pause
   trigger:
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      device_name: 'flirc.tv flirc Keyboard'
+      device_name: flirc.tv flirc Keyboard
       key_code: 2
   action:
   - service: rest_command.ha_script
     data:
-      script: "music_box_pause"        
-                        
-
-
+      script: music_box_pause
+  id: 721b91ecf35c431fab115d468387fe59
 - alias: script.music_box_seek_forward_30
   trigger:
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      device_name: 'flirc.tv flirc Keyboard'
+      device_name: flirc.tv flirc Keyboard
       key_code: 3
   action:
   - service: rest_command.ha_script
     data:
-      script: "music_box_seek_forward_30"        
-                        
-
-
+      script: music_box_seek_forward_30
+  id: f4a4442a073a4a63909d9f425ba4e13b
 - alias: script.music_box_seek_backward_30
   trigger:
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      device_name: 'flirc.tv flirc Keyboard'
+      device_name: flirc.tv flirc Keyboard
       key_code: 4
   action:
   - service: rest_command.ha_script
     data:
-      script: "music_box_seek_backward_30"        
-                        
-
-
+      script: music_box_seek_backward_30
+  id: a9d8e10eac27450db844969e00819f5c
 - alias: script.music_box_stop
   trigger:
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      device_name: 'flirc.tv flirc Keyboard'
+      device_name: flirc.tv flirc Keyboard
       key_code: 11
   action:
   - service: rest_command.ha_script
     data:
-      script: "music_box_stop"        
-                        
-
-###############################################################    
-############################# Farben Steuern
-###############################################################
-
+      script: music_box_stop
+  id: ba660792fe1c483ca755d58cb93a1540
 - alias: script.schreibtisch_red
   trigger:
     platform: event
     event_type: keyboard_remote_command_received
-    event_data: 
-      device_name: 'flirc.tv flirc Keyboard'
-      key_code: 5 #-- drücken der 4 
+    event_data:
+      device_name: flirc.tv flirc Keyboard
+      key_code: 5
   action:
   - service: rest_command.ha_script
     data:
-      script: "schreibtisch_red"       
-
-
+      script: schreibtisch_red
+  id: 663f6d21ced74dd98f79e49c04078152
 - alias: script.schreibtisch_green
   trigger:
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      device_name: 'flirc.tv flirc Keyboard'
-      key_code: 6 #-- drücken der 5
+      device_name: flirc.tv flirc Keyboard
+      key_code: 6
   action:
   - service: rest_command.ha_script
     data:
-      script: "schreibtisch_green"             
-
+      script: schreibtisch_green
+  id: c0ed2da912cd4bbdaf60bc0ba778c1c7
 - alias: script.schreibtisch_yellow
   trigger:
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      device_name: 'flirc.tv flirc Keyboard'
-      key_code: 7 #-- drücken der 6
+      device_name: flirc.tv flirc Keyboard
+      key_code: 7
   action:
   - service: rest_command.ha_script
     data:
-      script: "schreibtisch_yellow"         
-
+      script: schreibtisch_yellow
+  id: 36aa7463163e4d27806ecd726d5bb03d
 - alias: script.schreibtisch_white
   trigger:
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
-      device_name: 'flirc.tv flirc Keyboard'
-      key_code: 8 #-- drücken der 7
+      device_name: flirc.tv flirc Keyboard
+      key_code: 8
   action:
   - service: rest_command.ha_script
     data:
-      script: "schreibtisch_white"         
+      script: schreibtisch_white
+  id: 0a61ca73e7b04dc3b4150f0885136855
+- id: '1621538611212'
+  alias: GPIO to Stream
+  description: ''
+  trigger:
+  - entity_id: input_boolean.gpio_1
+    platform: state
+    to: 'on'
+  - entity_id: input_boolean.gpio_2
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data: {}
+    service: script.new_marshall_start_stream
+  mode: restart
